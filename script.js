@@ -30,4 +30,15 @@ function targetTheme(theme) {
     (theme === 'dark') ? 'fa-sun' : 'fa-moon',
     (theme === 'dark') ? 'fa-moon' : 'fa-sun'
   );
+
+  localStorage.setItem('currentTheme', theme);
+}
+
+// Check localStorage for currentTheme
+const currentTheme = localStorage.getItem('currentTheme');
+if (currentTheme) {
+  targetTheme(currentTheme);
+  if (currentTheme === 'dark') {
+    toggleSwitch.checked = true;
+  }
 }
